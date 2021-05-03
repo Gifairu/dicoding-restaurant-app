@@ -7,25 +7,28 @@
   <body>
     <!-- Navigation -->
     <nav class="flex-between">
-      <div>
-        <ul>
-          <li><a>Restaurant Apps</a></li>
-        </ul>
-      </div>
+      <ul>
+        <li><a>Restaurant Apps</a></li>
+      </ul>
 
-      <ul class="flex-items">
+      <ul class="flex-items" id="drawer">
         <li><a href="/" class="items">Home</a></li>
         <li><a href="#" class="items">Favorite</a></li>
         <li><a href="#" class="items">About Us</a></li>
       </ul>
+      <!-- Hamburger Menu -->
+      <main>
+        <a id="hamburger" href="#">☰</a>
+      </main>
+      <!-- Hamburger Menu End -->
     </nav>
     <!-- Navigation End -->
-    <h1>Restaurant Apps Starter Project</h1>
-    <p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-    <p>
-      Jangan lupa untuk menggunakan salah satu gambar yang berada pada
-      ./images/heros sebagai background hero elemen
-    </p>
+
+    <!-- Jumbotron -->
+    <header class="jumbotron">
+      <img src="./images/heros/hero-image_2.jpg" class="img-jumbotron" alt="" />
+    </header>
+    <!-- Jumbotron End -->
 
     <h1 class="text-center">Expore Restaurant</h1>
 
@@ -62,10 +65,37 @@
       <!-- <img src="./images/heros/hero-image_3.jpg" width="450" alt="" /> -->
       <!-- <img src="./images/heros/hero-image_4.jpg" width="450" alt="" /> -->
     </div>
+    <script>
+      const hamburgerButtonElement = document.querySelector("#hamburger");
+      const drawerElement = document.querySelector("#drawer");
+      hamburgerButtonElement.addEventListener("click", (event) => {
+        drawerElement.classList.toggle("open");
+        event.stopPropagation();
+      });
+    </script>
   </body>
 </html>
 
 <style>
+  li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    margin: 1rem;
+    padding: 0;
+  }
+
+  .img-jumbotron {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    border-radius: 1rem;
+  }
+
   .flex-between {
     display: flex;
     justify-content: space-between;
@@ -121,5 +151,43 @@
 
   .container {
     padding: 1rem 1rem;
+  }
+
+  #drawer {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    transform: translate(-250px, 100px);
+    transition: transform 0.3s ease-in-out;
+    background-color: #111;
+  }
+
+  #drawer.open {
+    transform: translate(0, 0);
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  #drawer ul {
+    list-style-type: none;
+    padding: 0 16px;
+  }
+
+  #drawer li {
+    padding: 5px 0px;
+  }
+
+  #drawer a {
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+  }
+
+  #hamburger {
+    font-size: 32px;
+    text-decoration: none;
+    color: black;
   }
 </style>
